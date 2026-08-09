@@ -1,0 +1,233 @@
+* {
+  box-sizing: border-box;
+  
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 0px;
+}
+
+.container > * {
+  border: 1px solid #E3E7EE;
+  /*background-color: #F8F8F8;*/
+  background: skyblue;
+  padding: 10px;
+  grid-column: col-start / span 12;
+  
+}
+
+.content{
+  height: auto;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: white;
+  border: none;
+}
+
+.footer{
+  background: rgba(199, 215, 230, 0);
+  color: rgba(0, 0, 0, 0.39);
+  font-size: smaller;
+  border: none;
+}
+
+.div{
+  display: inline-block;
+}
+
+.divmenu {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+.overlar{
+  width: 0;
+}
+
+.overlayW{
+  width: 70%;
+}
+
+.titlo{
+  display: inline-block;
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  color:black;
+}
+
+.avatar{
+  display: inline-block;
+  position: absolute;
+  left: 83%;
+  top:  10px;
+  font-size: 30px;
+}
+
+.spanUsuario{
+  position: absolute;
+  left: 82%;
+  top:  40px;
+  font-size: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.containerDi {
+  display: flex;
+  gap: 16px;
+  background: white;
+  height: 76px;
+}
+
+
+.divIcon{
+  display: inline-block;
+  text-align: center;
+}
+
+.divIconCarinho{
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+  left: 85%;
+  border-radius: 50%;
+  background: #F8F8F8;
+}
+
+.navIconActive {
+  background-color: rgb(118, 176, 196);
+  transform: scale(0.98);
+  border-radius: 50%;
+  width: 70%;
+  height: 50%;
+}
+.navIcon{
+  color: rgba(0, 0, 0, 0.705);
+  font-size: 30px;
+  border-radius: 3px;
+  width: 70%;
+  height: 50%;
+}
+
+.navIconCarinho{
+  color: rgba(0, 0, 0, 0.705);
+  font-size: 30px;
+  border-radius: 3px;
+  width: 70%;
+  height: 50%;
+  
+  color: rgb(233, 169, 51);
+  
+}
+
+.navIconCarinhoActivo{
+  border-radius: 50%;
+  background: #F8F8F8;
+
+}
+
+.spanCarinho{
+  /*color: #04AA6D;*/
+  font-size: larger;
+}
+
+.spanIcon{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+}
+
+.divC{
+  display: flex;
+  position: relative;
+  gap: 10px;
+  flex-wrap: wrap;
+ 
+}
+
+.card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 48%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.contentCard {
+  padding: 2px 2%;
+  background: #E3E7EE;     
+}
+
+.btnCard{
+  background: #04AA6D;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 7px;
+  font-size:large;
+}
+
+.form{
+  width: 46vh;
+  margin-top: 2px;
+  margin: auto;
+ background: white;
+}
+
+.form > *{
+  width: inherit;
+  padding: 14px;
+  border: 2px solid black;
+  border-radius: 3px;
+  margin-top: 6px;
+}
+
+.label{
+  display: inline;
+  border: none;
+  color: rgb(226, 45, 45);
+  font-size: x-small;
+  text-align: left;
+}
+.btn{
+  background: #04AA6D;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+.radio{
+  display: flex;
+  gap: 10px;
+  background: white; 
+  padding: 5px;
+  align-items: center;
+}
+
+.inptIdade{
+  width: 50%;
+  padding: 10px;  
+  border:  0px 1px solid; 
+  border-radius: 50%; 
+}
+
+.genderSelect{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.alerta{
+  color: red;
+  text-align: center;
+}
+

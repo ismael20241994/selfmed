@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 0px;
+}
+
+.nav{
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+  width: 50%;
+  border-bottom: 1px solid green;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+.ul{
+  margin-top: 3px;
+  width: 50%;
+}
+.link:hover{
+  border-left: 5px solid green;
+  border-bottom: 1px solid green;
+  font-size: large;
+}
+.link:active{
+  border-left: 5px solid green;
+  border-bottom: 1px solid green;
+ 
+}
+
+.divinvMenu{
+  margin-top: 3px;
+  width: 35px;
+}
+
+.divmenu {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+.h2menu{
+  margin-top: 0;
+  color: green;
+  font-size: small;
+}
+
+.menusuphiden{
+  display: none;
+}
+
+.menusupshow{
+  display: block;
+  position: absolute;
+  margin-top: 0;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.menusupshow a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.table{
+  display: none;
+}
+
+/* Mobile first */
+.container > * {
+  border: 1px solid #E3E7EE;
+  /*background-color: #F8F8F8;*/
+  background: skyblue;
+  padding: 10px;
+  grid-column: col-start / span 12;
+}
+
+.content{
+  height: auto;
+  /*overflow-y: auto;
+  overflow-x: auto;*/
+  border: none;
+  background: white;
+}
+
+.footer{
+  background: rgba(199, 215, 230, 0);
+  color: rgba(0, 0, 0, 0.39);
+  font-size: smaller;
+  border: none;
+}
+
+.div{
+  display: inline-block;
+}
+
+.overlar{
+  width: 0;
+}
+
+.overlayW{
+  width: 70%;
+}
+
+.titlo{
+  display: inline-block;
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  color:black;
+}
+
+.avatar{
+  display: inline-block;
+  position: absolute;
+  left: 83%;
+  top:  10px;
+  font-size: 30px;
+  
+}
+
+.spanUsuario{
+  position: absolute;
+  left: 82%;
+  top:  40px;
+  font-size: 10px;
+}
+
+.h2{
+  color: black;
+}
+
+.divC{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 48%;
+  border: 1px solid skyblue;
+  border-radius: 6px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.contentCard {
+  padding: 2px 2px;
+  background: #E3E7EE;
+  border: 1px solid white;
+}
+
+.icone {
+  color: rgb(13, 14, 13);
+  font-size: 16px;
+}
+
+.spin {
+  color: #fc4903;
+  animation: spin 1s linear infinite;
+}
+
+.lixeira{
+  color: rgba(255, 0, 0, 0.671);
+  margin-left: 40px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.h3clinica{
+  color: blue;
+  text-align: center;
+}
+
+.iconStatus{
+  color: green;
+}
+span{
+  font-size: small;
+}
+
+.divinvMenu{
+  margin-top: 3px;
+  width: 35px;
+}
+
+.divmenu {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+
+@media (min-width: 576px) {
+ /* nav ul {
+    display: flex;
+    justify-content: space-between;
+  }*/
+  .container > *{
+    font-size: medium;
+  }
+
+  .selectInpt{
+    width: 50%;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 0.55%;
+    font-size: medium;
+  }
+
+  .table {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    border-collapse: collapse;
+    width:100%;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+ 
+  .container > *{
+    font-size: larger;
+  }
+
+  .nav{
+    display: block;
+  }
+
+  
+
+  .link{
+    font-size: large;
+  }
+
+  .link:hover{
+    border-left: 5px solid green;
+    border-bottom: 1px solid green;
+    font-size: larger;
+  }
+
+  .divinvMenu{
+    display: none;
+  }
+}
+
+.containerDi {
+  display: flex;
+  gap: 16px;
+  background: white;
+  height: 76px;
+}
+
+
+.divIcon{
+  display: inline-block;
+  text-align: center;
+}
+
+.navIconActive {
+  background-color: rgb(118, 176, 196);
+  transform: scale(0.98);
+  border-radius: 50%;
+ width: 70%;
+  height: 50%;
+}
+.navIcon{
+  color: rgba(0, 0, 0, 0.705);
+  font-size: 30px;
+  border-radius: 3px;
+  width: 70%;
+  height: 50%;
+  
+}
+
+.spanIcon{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+}

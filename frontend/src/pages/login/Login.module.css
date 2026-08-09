@@ -1,0 +1,100 @@
+.form{
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.h2, .h3{
+    color: black;
+}
+
+label{
+    display: block;
+    color: black;
+}
+
+.input{
+    width: 100%;
+    padding: 2.5%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btnform{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 3%;
+    margin: 8px 0;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.h2,.h3{
+    text-align: center;
+    color: black;
+    margin-top: -0.5%;
+}
+
+.btnlog{
+    margin: 0 8px;
+}
+
+.alerta{
+    color: red;
+    font-size: medium;
+    margin-top: 0;
+}
+
+.error{
+    color: red;
+    font-size: smaller;
+    margin-top: 0;   
+}
+
+.sucess{
+    color: #4CAF50;
+    font-size: smaller;
+    margin-top: 0;
+}
+
+.btnresend{
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: rgb(231, 85, 85);
+    color: white;
+}
+.ifh2{
+  color: black;  
+}
+@media (min-width: 576px) {
+    .alerta{
+        color: red;
+        font-size: large;
+        margin-top: 0;
+    }
+
+    .btnform{
+        font-size: medium;
+    }
+}
+
+@media (min-width: 768px) {
+    .alerta{
+        color: red;
+        font-size: larger;
+        margin-top: 0;
+    } 
+    
+    .btnform{
+        font-size: large;
+    }
+}
+
+.div{
+    margin-top: -8%;
+}
