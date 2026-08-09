@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import Footer from '../components/footer';
 import Modal from '../components/modal2/modal';
-import logo from '../../assets/logo.png';
 import { FaUserDoctor, FaCalendarDays} from "react-icons/fa6";
 import {FaClock, FaCheckCircle, FaTimesCircle, FaFileSignature,
 FaFileAlt,FaCalendarCheck, FaPlus,FaUserCircle} from "react-icons/fa";
