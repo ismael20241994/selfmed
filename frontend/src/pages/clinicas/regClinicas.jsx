@@ -1,6 +1,5 @@
 import styles from './Clinica.module.css'
 import { useState, useEffect } from 'react';
-import logo from '../../assets/logo.png';
 import Modal from '../components/modal2';
 import {FaPen, FaTrash} from "react-icons/fa";
 
