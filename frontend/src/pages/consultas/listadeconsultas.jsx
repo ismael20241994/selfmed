@@ -2,7 +2,6 @@ import Footer from "../components/footer";
 import { useEffect,useState,useRef } from "react";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import styles from "./List.module.css";
-import logo from '../../assets/logo.png';
 import { FaUserDoctor, FaCalendarDays, FaCircleCheck } from "react-icons/fa6";
 import {FaClock, FaStethoscope, FaSpinner, FaPen, FaTrash,FaFileSignature,
 FaFileAlt,FaPlus,FaUserCircle} from "react-icons/fa";
