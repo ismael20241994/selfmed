@@ -72,7 +72,7 @@ const server = createServer(app);
   }*/
 
 // Define the port to listen on const PORT = 3000;
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 // Start the server and listen on the specified port
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running at http://localhost:${PORT}/`);
