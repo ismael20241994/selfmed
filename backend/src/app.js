@@ -14,13 +14,13 @@ app.use((req, res, next) => {
 });
 
 
-
 app.use(express.urlencoded({extended: true}));
 app.use("/uploads", express.static("uploads"));
 app.use(cors({
   origin: function (origin, callback){
     const allowed = ['http://localhost:5174',
-      'http://192.168.43.132:5174'
+      'http://192.168.43.132:5174',
+      'https://selfmed.online'
     ];
     
     if(!origin || allowed.includes(origin)){
