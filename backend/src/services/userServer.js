@@ -57,6 +57,7 @@ export async function getData(dado) {
 };
 
 export async function registrar(params) {
+ 
   const pac = Math.floor(100000 + Math.random() * 900000);
   const dados = {
     nome: params.usuario.trim(),
@@ -68,9 +69,9 @@ export async function registrar(params) {
   }
   try{
     const resposta = await saveRegis(dados);
-    if(!resposta.status){
+    if(!resposta.success){
       return{
-        status:resposta.status,
+        success:resposta.success,
         message: resposta.message
       }
     }
@@ -78,12 +79,12 @@ export async function registrar(params) {
     const mailres = await sendemail(params.email,resposta.message);
     
     return{
-      status: resposta.status,
+      success: resposta.success,
       message:`Enviamos o codico de acesso "pac" para  ${params.email}`
     }
   }catch(err){
     return{
-      status: 500,
+      success: false,
       message: err.message
     }
   }

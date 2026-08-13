@@ -22,6 +22,7 @@ routes.post('/addClinic', addClinic)
 routes.post('/updateClinic',updateClinic)
 routes.get('/lista/:pac',consultas);
 routes.post('/singUp',regis);
+/*routes.post('/singUp',((req,res)=>res.status(200).json('erro na criacao de conta')));*/
 routes.post('/login',login);
 routes.get('/allPac', getAlllPacs);
 routes.post('/updatePac', updateUser);

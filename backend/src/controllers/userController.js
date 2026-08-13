@@ -105,8 +105,16 @@ export async function consultas ( req, res){
 
 export async function regis(req, res){
     try{
+         
       const resposta = await registrar(req.body); 
+      if(!resposta.success){
+           return res.status(404).json({
+                message: resposta.message,
+            });
+            
+        }
       res.status(200).json(resposta.message);
+      //console.log('erro na criacao de conta')
     }catch(err){
         res.status(500).json({message: err.message})
     }

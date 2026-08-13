@@ -159,26 +159,29 @@ export async function getConsultas (params){
 
 export async function saveRegis(params) {
   try{
+
+    
     const sql = `INSERT INTO self_user(
       nome,contacto,email,senha,pac) VALUES (?,?,?,?,?)`;
     const [result] = await pool.query(sql,
       [params.nome, params.contacto, params.email, params.senha, params.pac]);
     if(result.affectedRows > 0){
       return{
-        status: true,
+        success: true,
         message: params.pac
       };
     }
 
     return{
-      status: false,
+      success: false,
       message: 'erro na criação da conta!'
+      
     }
     
   }catch(err){
     console.log(err)
      return{
-      status:500,
+      success:false,
       message:'error na criação da conta!'
     }
   }

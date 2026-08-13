@@ -164,7 +164,7 @@ function Login(){
         setLoader(true);
         try{
 
-            const res = await fetch(`${import.meta.env.Vite_API_URL}/singUp`,
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/singUp`,
             {
                 method: 'POST',
                 headers:
@@ -184,14 +184,17 @@ function Login(){
                 confirSenha: "",
 
             })
-            
-            if (!res.ok) {
+            console.log(res)
+            console.log(import.meta.env.VITE_API_URL)
+            const data = await res.json();
+
+            if (res.status !== 200) {
                 setLoader(false)
                 setAlerta('Usuário ou senha inválidos');
                 setTimeout(()=>setAlerta(""),3000)
                 return;
             }
-            const data = await res.json();
+            console.log(data)
             setLoader(false) 
             setOpen(true);
            setActiveTab('Login');
