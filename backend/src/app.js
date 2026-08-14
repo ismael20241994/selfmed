@@ -20,7 +20,8 @@ app.use(cors({
   origin: function (origin, callback){
     const allowed = ['http://localhost:5174',
       'http://192.168.43.132:5174',
-      'https://selfmed.online'
+      "https://www.selfmed.online",
+       "https://selfmed.online"
     ];
     
     if(!origin || allowed.includes(origin)){
