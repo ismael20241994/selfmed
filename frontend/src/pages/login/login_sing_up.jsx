@@ -85,7 +85,7 @@ function Login(){
 
             const token = localStorage.getItem('token');
             
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth`,{
+            const response = await fetch(`${import.meta.env.VITE.API_URL}/auth`,{
                 method: "GET",
                 headers:{
                     Authorization: `Bearer ${token}`
@@ -185,7 +185,7 @@ function Login(){
 
             })
             console.log(res)
-            console.log(import.meta.env.VITE_API_URL)
+            console.log(import.meta.env.API_URL)
             const data = await res.json();
 
             if (res.status !== 200) {
