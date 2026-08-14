@@ -164,7 +164,7 @@ function Login(){
         }
         setLoader(true);
         try{
-            console.log("API URL:", import.meta.env.VITE_API_URL);
+            //console.log("API URL:", import.meta.env.VITE_API_URL);
             const res = await fetch(`${import.meta.env.VITE_API_URL}/singUp`,
             {
                 method: 'POST',
@@ -185,8 +185,6 @@ function Login(){
                 confirSenha: "",
 
             })
-            console.log(res)
-            console.log(import.meta.env.API_URL)
             const data = await res.json();
 
             if (res.status !== 200) {
