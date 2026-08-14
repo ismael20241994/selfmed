@@ -103,7 +103,7 @@ function Login(){
             },5000) 
            
         }catch(error){
-            console.log(import.meta.env.VITE_API_URL)
+            
             setLoader(false);
             setAlerta('Erro ão conectar com servidor');
             setTimeout(()=>setAlerta(""),3000)
