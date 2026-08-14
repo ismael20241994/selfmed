@@ -163,7 +163,7 @@ function Login(){
         }
         setLoader(true);
         try{
-
+            console.log("API URL:", import.meta.env.VITE_API_URL);
             const res = await fetch(`${import.meta.env.VITE_API_URL}/singUp`,
             {
                 method: 'POST',
