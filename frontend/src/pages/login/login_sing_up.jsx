@@ -95,6 +95,7 @@ function Login(){
             const result = await response.json();
             if(response.status !== 200){
                 localStorage.removeItem('token');
+                console.log(response.message)
                 return navigate('/')
             }
            
