@@ -159,7 +159,9 @@ export async function getConsultas (params){
 
 export async function saveRegis(params) {
   try{
-
+    return {
+      success: true
+    }
     
     const sql = `INSERT INTO self_user(
       nome,contacto,email,senha,pac) VALUES (?,?,?,?,?)`;

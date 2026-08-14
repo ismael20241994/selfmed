@@ -106,6 +106,7 @@ function Login(){
             
             setLoader(false);
             setAlerta('Erro ão conectar com servidor');
+            console.log('error de login:',error.message)
             setTimeout(()=>setAlerta(""),3000)
         }
     };
