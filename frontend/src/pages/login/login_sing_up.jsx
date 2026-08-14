@@ -91,7 +91,7 @@ function Login(){
                     Authorization: `Bearer ${token}`
                 }
             });
-
+            console.log(import.meta.env.VITE_API_URL)
             const result = await response.json();
             if(response.status !== 200){
                 localStorage.removeItem('token');
