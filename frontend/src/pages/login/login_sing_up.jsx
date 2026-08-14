@@ -95,17 +95,17 @@ function Login(){
             const result = await response.json();
             if(response.status === 200) {
                 console.log('login sucess, token:', token)
+                setTimeout(()=>{
+                navigate('/pac')
+             },5000)
             }
             if(response.status !== 200){
                 localStorage.removeItem('token');
                 console.log('message:', response.message)
-                console.log(token)
                 return navigate('/')
             }
            
-            setTimeout(()=>{
-                navigate('/pac')
-            },5000) 
+             
            
         }catch(error){
             
