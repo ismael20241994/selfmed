@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
     }
 
     try {
-      const response = await fetch("http://192.168.43.132:3000/api/auth", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
