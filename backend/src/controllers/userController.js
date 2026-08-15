@@ -135,7 +135,7 @@ export async function login (req, res){
         });
 
     }catch(err){
-        res.status(500).json({message: 'Error interno do servidor user co'})
+        res.status(500).json({message: 'Error interno do servidor'})
     }
 };
 

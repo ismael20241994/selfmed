@@ -91,22 +91,15 @@ function Login(){
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(import.meta.env.VITE_API_URL)
-            const result = await response.json();
-            if(response.status === 200) {
-                console.log('login sucess, token:', token)
-                setTimeout(()=>{
-                navigate('/pac')
-             },5000)
-            }
+           
             if(response.status !== 200){
                 localStorage.removeItem('token');
-                console.log('message:', response.message)
                 return navigate('/')
             }
-           
-             
-           
+            setTimeout(()=>{
+                navigate('/pac')
+            },5000)
+            
         }catch(error){
             
             setLoader(false);
