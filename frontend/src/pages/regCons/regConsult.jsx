@@ -20,7 +20,7 @@ function Regc(){
 
     useEffect((parametro)=>{
         async function carregarDados() {
-            const response = await fetch("http://192.168.43.132:3000/api/allPac");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/allPac`);
             const data = await response.json();
            if(response.status !== 200){
             alert(data.message);
@@ -41,7 +41,7 @@ function Regc(){
     const handleSubmit = async (e)=>{
          e.preventDefault();
         try{
-          const responta = await fetch("http://192.168.43.132:3000/api/updatePac",{
+          const responta = await fetch(`${import.meta.env.VITE_API_URL}/updatePac`,{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -64,7 +64,7 @@ function Regc(){
 
     async function removerPac(params) {
         try{
-            const response = await fetch(`http://192.168.43.132:3000/api/removerPac/${params}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/removerPac/${params}`);
             const data = await response.json();
             if(response.status !== 200){
                setPopupMessage(data.message)
