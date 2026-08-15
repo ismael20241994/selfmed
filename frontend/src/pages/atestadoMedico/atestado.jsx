@@ -100,7 +100,6 @@ function Atestado(){
         navigate('/car_atestado')
        }catch(err){
         //setPopup({type: 'error', open:true})
-        console.log(err.message);
         setAlerta('Error Interno');
         setTimeout(()=>{setAlerta("")},3000); 
         return;

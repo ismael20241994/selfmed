@@ -54,7 +54,7 @@ function Carinho_atestado(){
                             <p><b>Nome:</b> {item.cliente} <br />
                                 <b>Clinica:</b> {item.clinica} <br/> 
                                 <b>Emitido:</b> {item.data} <br />
-                                <b>Status:</b> {!item.status ?(<><FaSpinner className={styles.spin}/> Verificando pedido!</>):
+                                <b>Status:</b> {item.status ?(<><FaSpinner className={styles.spin}/> Verificando pedido!</>):
                                 (<><FaCheckCircle className={styles.iconStatus}/> Disponivel</>) }
                             </p>
                             
