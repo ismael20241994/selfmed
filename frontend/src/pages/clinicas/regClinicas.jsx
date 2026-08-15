@@ -29,7 +29,7 @@ function Clinica (){
 
     useEffect(()=>{
         async function carregarDados(){
-            const response = await fetch(`http://192.168.43.132:3000/api/clinica`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/clinica`);
             const data = await response.json();
             if(response.status !== 200){
                alert('err na busca de clinica, ou bd vazio')
@@ -50,7 +50,7 @@ function Clinica (){
     const handleSubmit = async (e)=>{
         e.preventDefault();
          try{
-          const responta = await fetch("http://192.168.43.132:3000/api/addClinic",{
+          const responta = await fetch(`${import.meta.env.VITE_API_URL}/addClinic`,{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -91,7 +91,7 @@ function Clinica (){
     const handleSubmitEdit = async (e)=>{
         e.preventDefault();
         try{
-          const responta = await fetch("http://192.168.43.132:3000/api/updateClinic",{
+          const responta = await fetch(`${import.meta.env.VITE_API_URL}/updateClinic`,{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'

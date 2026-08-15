@@ -10,7 +10,7 @@ function RegistConsultas (){
     const [consulta, setConsulta] = useState({id:"", estado:""});
     useEffect(()=>{
         async function carregarDados() {
-            const response = await fetch("http://192.168.43.132:3000/api/allConsult");
+            const response = await fetch("${import.meta.env.VITE_API_URL}/allConsult");
             const data = await response.json();
            if(response.status !== 200){
             alert(data.message);
@@ -23,7 +23,7 @@ function RegistConsultas (){
 
     async function removerConsul(params) {
          try{
-            const response = await fetch(`http://192.168.43.132:3000/api/deletar/${params}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/deletar/${params}`);
             const data = await response.json();
             if(response.status !== 200){
                setPopupMessage(data.message)
@@ -47,7 +47,7 @@ function RegistConsultas (){
         e.preventDefault();
          try{
             if(!consulta) return alert("Selecione o estado!");
-            const response = await fetch(`http://192.168.43.132:3000/api/updateEstado`,
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/updateEstado`,
                 {
                 method: 'POST',
                 headers:
