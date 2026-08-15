@@ -24,7 +24,7 @@ function Carinho_atestado(){
         }
         carregarDados();
     }, []);
-
+    
     return (
        <div className={styles.container}>
             <div className={styles.div}>
@@ -56,6 +56,7 @@ function Carinho_atestado(){
                                 <b>Emitido:</b> {item.data} <br />
                                 <b>Status:</b> {item.status ?(<><FaSpinner className={styles.spin}/> Verificando pedido!</>):
                                 (<><FaCheckCircle className={styles.iconStatus}/> Disponivel</>) }
+                                {item.status}
                             </p>
                             
                         </div>
