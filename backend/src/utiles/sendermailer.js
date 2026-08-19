@@ -15,8 +15,8 @@ export async function sendemail(email,params) {
             from: "support.selfmedi@gmail.com",
             to: "deazevedoismael0@gmail.com",
             subject: "Bem-vindo",
-            text: `Seu cadastro foi realizado com sucesso. Seu pac é: ${params}. Não compartilha com 
-            niguem, mantenha-o seguro. Use o pac para fazer login na sua conta.`,
+            text: `Seu cadastro foi realizado com sucesso. Seu pac(Usuario) é: ${params}. Não compartilha com 
+            niguem, mantenha-o seguro. Use o pac para fazer login da sua conta.`,
         });
 
         //console.log("Email enviado!");

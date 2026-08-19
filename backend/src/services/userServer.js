@@ -59,6 +59,7 @@ export async function getData(dado) {
 export async function registrar(params) {
  
   const pac = Math.floor(100000 + Math.random() * 900000);
+  
   const dados = {
     nome: params.usuario.trim(),
     contacto: params.contacto.trim(),
@@ -66,7 +67,8 @@ export async function registrar(params) {
     senha: params.senha.trim(),
     confirSenha: params.confirSenha.trim(),
     pac: pac
-  }
+  };
+
   try{
     const resposta = await saveRegis(dados);
     if(!resposta.success){
@@ -76,7 +78,7 @@ export async function registrar(params) {
       }
     }
 
-    const mailres = await sendemail(params.email,resposta.message);
+    const mailres = await sendemail(params.email, resposta.message);
     
     return{
       success: resposta.success,
@@ -92,7 +94,6 @@ export async function registrar(params) {
 
 export async function userLogin(params) {
   const JWT_SECRET = process.env.JWT_SECRET;
-  
   const dados = {
     pac: params.usuario.trim(),
     senha: params.senha.trim()
