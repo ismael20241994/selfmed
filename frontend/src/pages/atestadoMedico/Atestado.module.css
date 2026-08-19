@@ -178,32 +178,41 @@ footer {
 }
 
 .form{
-  width: 46vh;
-  margin-top: 2px;
+  width: 48vh;
+  margin-top: 4px;
   margin: auto;
- background: white;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .form > *{
-  width: inherit;
+  width: 90%;
   padding: 14px;
   border: 2px solid black;
   border-radius: 3px;
-  margin-top: 6px;
+  margin: auto;
 }
 
 .label{
   display: inline;
+  padding: 0px;
   border: none;
-  color: rgb(226, 45, 45);
-  font-size: x-small;
+  color: red;
+  font-size: small;
   text-align: left;
+}
+.ferstlabel{
+  margin-top: 6px;
 }
 .btn{
   background: #04AA6D;
   border: 1px solid;
-  border-radius: 3px;
-  margin-top: 4px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  color: white;
+  font-size: medium;
 }
 
 .radio{
@@ -221,13 +230,13 @@ footer {
   border-radius: 50%; 
 }
 
-.genderSelect{
-  width: 100%;
-  margin-top: 10px;
-}
-
 .alerta{
-  color: red;
+  background-color: rgb(241, 91, 91);
+  color: white;
+  border: none;
+  padding: 0;
   text-align: center;
+  border-radius: 1px;
+  font-size: small;
 }
 

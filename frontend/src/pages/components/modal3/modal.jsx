@@ -9,7 +9,7 @@ function Modal({isOpen, onClose,children}){
         <div className={styles.modal}>
             <div className={styles.modalContent}>
                 {children}
-               <button onClick={onClose} className={styles.btnx}>X</button>
+               {/*<button onClick={onClose} className={styles.btnx}>X</button>*/}
             </div>
         </div>,
         document.body

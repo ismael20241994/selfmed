@@ -16,6 +16,8 @@ function Carinho_atestado(){
     const [atestados, setAtestados] = useState([]);
     const [status, setStatus] = useState(false)
 
+    const usuario = localStorage.getItem('usuario')
+
     useEffect(() => {
         async function carregarDados() {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/solic_atestado/${pac}`);
@@ -34,7 +36,7 @@ function Carinho_atestado(){
                     <div className={styles.divmenu}></div>
                 </div>
                 <h2 className={styles.titlo}>SelfMed</h2>
-                <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>Usuario</span>
+                <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>{usuario}</span>
                 <Overlay onClose={()=>setOpen(false)} className={`${styles.overlar} ${ open ? styles.overlayW : ""}`}></Overlay>
             </div>
             <div className={styles.containerDi}>
@@ -56,15 +58,11 @@ function Carinho_atestado(){
                                 <b>Emitido:</b> {item.data} <br />
                                 <b>Status:</b> {item.status ?(<><FaSpinner className={styles.spin}/> Verificando pedido!</>):
                                 (<><FaCheckCircle className={styles.iconStatus}/> Disponivel</>) }
-                                {item.status}
                             </p>
-                            
                         </div>
                     </div>
                     ))}
-                    
                 </div>
-
             </div>
             <footer className={styles.footer}>@ tegs 2026</footer>
         </div>

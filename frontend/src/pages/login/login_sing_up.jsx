@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../components/modal2/modal';
+import Modal from '../components/modal3/modal';
 import styles from './Login.module.css'
 import Popup from '../components/popup/popup';
 import { Loader, LoaderCircule } from '../components/loader/loader';
@@ -80,7 +80,7 @@ function Login(){
             
             //setAlerta(data.message);
             sessionStorage.setItem('pac',form.usuario);
-
+            localStorage.setItem('usuario', data.data[0].nome)
             localStorage.setItem('token', data.token);
 
             const token = localStorage.getItem('token');

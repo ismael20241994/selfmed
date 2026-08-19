@@ -43,6 +43,8 @@ function Pac (){
     const Icon = icons[data.status];
     const [open, setOpen] = useState(false);
 
+    const usuario = localStorage.getItem('usuario');
+    
     useEffect(() => {
         async function carregarDados() {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/esp`);
@@ -114,12 +116,13 @@ function Pac (){
 
         if(!inputs.contacto){ 
             setAlerta(preve=>({...preve, contacto: "Contacto Obrigatório"}));
-            setTimeout(()=>{setAlerta("")},3000)
+            setTimeout(()=>{setAlerta("")},3000);
             return;
         };
         
         if(!diaSemana){ 
-            setAlerta(preve=>({...preve, dia: "Campo Obrigatório"}));
+            setAlerta(preve=>({...preve, dia: "Dia de Semana Obrigatório"}));
+            setTimeout(()=>{setAlerta("")},3000);
             return;
         };
 
@@ -160,7 +163,6 @@ function Pac (){
             setPopup({type: 'error', open:true, message:data.message})
            return;
         }
-        
         setPopup({type: 'success', open:true, message: data})
        }catch(err){
         setPopup({type: 'error', open:true})
@@ -168,7 +170,6 @@ function Pac (){
         return;
 
        }
-
     }
   
     return(
@@ -181,7 +182,7 @@ function Pac (){
                     <div className={styles.divmenu}></div>
                 </div>
                 <h2 className={styles.titlo}>SelfMed</h2>
-                <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>Usuario</span>
+                <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>{usuario}</span>
                 <Overlay onClose={()=>setOpen(false)} className={`${styles.overlar} ${ open ? styles.overlayW : ""}`}></Overlay>
             </div>
             <div className={styles.containerDi}>
@@ -214,7 +215,7 @@ function Pac (){
                         ))}
                     </select> 
                 </form>
-                <h2>Agendar Consultas</h2>
+                <h2 style={{textAlign: "center"}}>Agendar Consultas</h2>
                 <div className={styles.tablecontainer}>
                     <table className={styles.table}>
                         <thead>
@@ -257,15 +258,16 @@ function Pac (){
                
                     <Modal isOpen={isOpen} onClose={()=>setIsopen(false)}>
                         <form className={styles.form} onSubmit={handleSubmit}>
-                            <span className={styles.label}>Nome Completo:</span>
+                            <span className={`${styles.label} ${styles.ferstlabel}`}>Nome Completo*</span>
                             <input type="text" name="nome" value={inputs.nome} onChange={handleChangeModal}  placeholder='Nome Completo:'/>
                             <span className={styles.alerta}>{alerta.nome}</span>
-                            
+                            <span className={styles.label}>Idade*</span>
                             <div className={styles.idade}>
-                                <b>Idade:</b><input type="text" name="ano" value={inputs.ano} onChange={handleChangeModal} className={styles.inptIdade} placeholder='anos'/>Anos
-                                <input type="text"  name= "meses" value={inputs.meses} onChange={handleChangeModal} className={styles.inptIdade}  placeholder='meses'/>Meses
+                                <b>Anos:</b><input type="text" name="ano" value={inputs.ano} onChange={handleChangeModal} className={styles.inptIdade} placeholder='anos'/><b>Meses:</b>
+                                <input type="text"  name= "meses" value={inputs.meses} onChange={handleChangeModal} className={styles.inptIdade}  placeholder='meses'/>
                             </div>
                             <span className={styles.alerta}>{alerta.idade}</span>
+                            <span className={styles.label}>Genero*</span>
                             <select value={genero} onChange={handleChangeModalGenero} className={styles.genderSelect} >
                                 <option value="">Genero</option>
                                 <option value="Masculino">Masculino</option>
@@ -273,10 +275,10 @@ function Pac (){
                                 <option value="Outros">Outros</option>
                             </select>
                             <span className={styles.alerta}>{alerta.genero}</span>
-                            <span className={styles.label}>Contacto:</span>
+                            <span className={styles.label}>Contacto*</span>
                             <input type="text" name="contacto" value={inputs.contacto} onChange={handleChangeModal} placeholder='Contacto: exemplo 84xxxxxx' />
                             <span className={styles.alerta}>{alerta.contacto}</span>
-                            <span className={styles.label}>Dia da Consulta:</span>
+                            <span className={styles.label}>Dia da Consulta*</span>
                             <select value={diaSemana} onChange={handleChangeModalWeekDay}>
                                 <option value="">Dia da Semana</option>
                                 <option value="Segunda">Segunda-Feira</option>

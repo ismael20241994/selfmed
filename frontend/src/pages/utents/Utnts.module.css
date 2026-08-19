@@ -210,7 +210,7 @@ td{
 }
 
 .form{
-  width: 46vh;
+  width: 48vh;
   margin-top: 2px;
   margin: auto;
   background: white;
@@ -220,23 +220,30 @@ td{
 }
 
 .form > *{
-  width: inherit;
+  width: 90%;
   padding: 14px;
   border: 2px solid black;
-  border-radius: 3px;
+  border-radius: 6px;
+  margin: auto;
 }
 
 .alerta{
-  color: red;
+  background-color: rgb(241, 91, 91);
+  color: white;
   border: none;
   padding: 0;
-  
+  text-align: center;
+  border-radius: 1px;
+  font-size: small;
 }
 
 .btn{
   background: #04AA6D;
   border: 1px solid;
-  border-radius: 3px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  color: white;
+  font-size: medium;
 }
 
 .idade{
@@ -255,9 +262,12 @@ td{
 }
 
 .label{
-  color: blue;
+  color: red;
   border: none;
   padding: 0;
+}
+.ferstlabel{
+  margin-top: 6px;
 }
 
 .divC{

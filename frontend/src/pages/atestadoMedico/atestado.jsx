@@ -16,11 +16,14 @@ function Atestado(){
     const [openModal, setOpenModal] = useState(false);
     const clinicas = ["Centro Medico Maxi Vida", "Consultorios Medico Tete","Santa Vitoria"];
     const [inputs, setInputs] = useState({
-        nome:"", ano:"", meses:"", contacto:"",data:""
+        nome:"", ano:"", meses:"", contacto:"", data:""
     });
-    const [genero, setGenero] = useState("Genero");
-    const [alerta, setAlerta] = useState("");
+    const [alerta, setAlerta] = useState({
+        nome:"", idade:"", genero:"", contacto:"", data:"", error:""
+    });
+    const [genero, setGenero] = useState("");
     const [nomeClinica, setNomeClinica] = useState("");
+    const usuario = localStorage.getItem('usuario')
 
     function handleChangeModal (e){
         const name = e.target.name;
@@ -36,33 +39,47 @@ function Atestado(){
     
     async function handleSubmit (e){
         e.preventDefault();
+        
         if(!inputs.nome){ 
-            setAlerta('Nome obrigatorio!');
+            setAlerta(preve=>({...preve, nome: "Nome Obrigatório"}));
+            setTimeout(()=>{setAlerta("")},3000)
+            return;
+        };
+
+        if(!inputs.ano && !inputs.meses){ 
+            setAlerta(preve=>({...preve, idade: "Idade Obrigatório"}));
+            setTimeout(()=>{setAlerta("")},3000)
+            return;
+        };
+
+        if(!genero){ 
+            setAlerta(preve=>({...preve, genero: "Genero Obrigatório"}));
             setTimeout(()=>{setAlerta("")},3000)
             return;
         };
 
         if(!inputs.contacto){ 
-            setAlerta('Contacto obrigatorio!');
+            setAlerta(preve=>({...preve, contacto: "Contacto Obrigatório"}));
             setTimeout(()=>{setAlerta("")},3000)
             return;
         };
 
         if(!inputs.data){
-            setAlerta('Data da Consulta Obrigatório!');
+            setAlerta(preve=>({...preve, data: 'Data da Consulta Obrigatório!'}));
             setTimeout(()=>{setAlerta("")},3000);
+            console.log('erro de data')
             return;
         }
         
         if(inputs.nome.trim().length < 3){
-            setAlerta('Nome Invalido, minimo 3 caracteres!');
+            setAlerta(preve=>({...preve, nome: 'Nome Invalido, minimo 3 caracteres!'}));
             setTimeout(()=>{setAlerta("")},3000);
             return;
         };
 
         const contacto = inputs.contacto.replace(/\D/g, "");
         if (!/^(258)?8[2-7]\d{7}$/.test(contacto)) {
-            setAlerta("Contacto inválido!");
+            setAlerta(preve=>({...preve, contacto: "Formato de Contacto inválido!"}));
             setTimeout(()=>{setAlerta("")},3000);
             return;
         }
@@ -76,15 +93,16 @@ function Atestado(){
             data: inputs.data,
             pac: pac
         }
-        console.log(dados);
+        
         setInputs({
             nome:"",
             ano:"",
             meses:"",
             contacto:"",
-            data:""
+            dia:"",
+            error:""
         });
-        setGenero('Genero');
+        
         try{
          const response = await fetch(`${import.meta.env.VITE_API_URL}/solic_atestado`,{
             method: "POST",
@@ -100,7 +118,7 @@ function Atestado(){
         navigate('/car_atestado')
        }catch(err){
         //setPopup({type: 'error', open:true})
-        setAlerta('Error Interno');
+        setAlerta(preve=>({...preve, error: 'Error Interno do Servidor'}));
         setTimeout(()=>{setAlerta("")},3000); 
         return;
        }
@@ -115,7 +133,7 @@ function Atestado(){
                     <div className={styles.divmenu}></div>
                 </div>
                 <h2 className={styles.titlo}>SelfMed</h2>
-                <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>Usuario</span>
+                <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>{usuario}</span>
                 
                 <Overlay onClose={()=>setOpen(false)} className={`${styles.overlar} ${ open ? styles.overlayW : ""}`}></Overlay>
             </div>
@@ -133,7 +151,7 @@ function Atestado(){
                         <div key={index} className={styles.card} >
                             <h3>{item}</h3>
                                 <div onClick={()=>{setOpenModal(true);setNomeClinica(item)}} className={styles.contentCard}>
-                                <button className={styles.btnCard}><span>Pesquisar Atestado</span> <FaSearch size={14} /></button>
+                                <button className={styles.btnCard}><span>Pesquisar Atestado</span> <FaSearch size={14}/></button>
                             </div>
                         </div>
                     ))}
@@ -141,27 +159,31 @@ function Atestado(){
 
                 <Modal isOpen={openModal} onClose={()=>setOpenModal(false)}>
                     <form className={styles.form} onSubmit={handleSubmit}>
-                        <label htmlFor="" className={styles.label}>Nome Completo do Paciente*</label>
+                        <label htmlFor="" className={`${styles.label} ${styles.ferstlabel}`}>Nome Completo do Paciente*</label>
                         <input type="text" name="nome" value={inputs.nome} onChange={handleChangeModal}  placeholder='Nome Completo:'/>
+                        <span className={styles.alerta}>{alerta.nome}</span>
                         <label htmlFor="" className={styles.label}>Idade*</label>
                         <div className={styles.radio}>
                             <b>Idade:</b><input type="text" name="ano" value={inputs.ano} onChange={handleChangeModal} className={styles.inptIdade} placeholder='anos'/>Anos
                             <input type="text"  name= "meses" value={inputs.meses} onChange={handleChangeModal} className={styles.inptIdade}  placeholder='meses'/>Meses
                         </div>
+                        <span className={styles.alerta}>{alerta.idade}</span>
                         <label htmlFor="" className={styles.label}>Genero*</label>
-                        <select value={genero} onChange={handleChangeModalGenero} className={styles.genderSelect} >
+                        <select  onChange={handleChangeModalGenero} className={styles.genderSelect} >
                             <option value="">Genero</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                             <option value="Outros">Outros</option>
                         </select>
+                        <span className={styles.alerta}>{alerta.genero}</span>
                         <label htmlFor="" className={styles.label}>Data que  teve a Consulta*</label>
-                        <input type="date" name='data' value={inputs.data} onChange={handleChangeModal}/> 
+                        <input type="date" name="data" value={inputs.data} onChange={handleChangeModal}/> 
+                        <span className={styles.alerta}>{alerta.data}</span>
                         <label htmlFor="" className={styles.label}>Contacto*</label>                       
                         <input type="text" name="contacto" value={inputs.contacto} onChange={handleChangeModal} placeholder='Contacto: exemplo 84xxxxxx' />
-                        <button className={styles.btn}>Solicitar Atestado</button>
+                        <span className={styles.alerta}>{alerta.contacto}</span>
+                        <button className={styles.btn}>Pesquisar Atestado <FaSearch size={14}/></button>
                     </form>
-                    <p className={styles.alerta}>{alerta}</p>
                 </Modal>
             </div>
             <footer className={styles.footer}>@ tegs 2026</footer>

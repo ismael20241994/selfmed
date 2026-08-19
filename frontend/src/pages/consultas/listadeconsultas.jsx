@@ -21,6 +21,8 @@ function MyConsults (){
     const [actualizar, setActualizar] = useState(false);
     const {activo, setActive} = useState(false);
     
+    const usuario = localStorage.getItem('usuario')
+    
     useEffect(()=>{
         async function carregarDados(){
             const response = await fetch(`${import.meta.env.VITE_API_URL}/lista/${pac}`);
@@ -61,7 +63,7 @@ function MyConsults (){
                         <div className={styles.divmenu}></div>
                     </div>
                     <h2 className={styles.titlo}>SelfMed</h2>
-                    <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>Usuario</span>
+                    <FaUserCircle className={styles.avatar}/><span className={styles.spanUsuario}>{usuario}</span>
                     
                     <Overlay onClose={()=>setOpen(false)} className={`${styles.overlar} ${ open ? styles.overlayW : ""}`}></Overlay>
                 </div>
