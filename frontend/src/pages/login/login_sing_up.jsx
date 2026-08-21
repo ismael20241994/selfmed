@@ -4,6 +4,7 @@ import Modal from '../components/modal3/modal';
 import styles from './Login.module.css'
 import Popup from '../components/popup/popup';
 import { Loader, LoaderCircule } from '../components/loader/loader';
+import {FaCheckCircle} from 'react-icons/fa'
 
 function Login(){
     const navigate = useNavigate();
@@ -251,12 +252,11 @@ function Login(){
                 <button className={styles.btnresend} onClick={reenviarMailer}>Reenviar email</button>
                 <Popup open={open} onClose={()=>setOpen(false)}>
                     <h2 className={styles.ifh2}>{infState}</h2>
+                    <FaCheckCircle className={styles.icon}/>
                     <p>{ifoPopup}</p>
                 </Popup>
             </Modal>
-            
         </>
-        
     )
 }
 

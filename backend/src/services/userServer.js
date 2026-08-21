@@ -78,11 +78,11 @@ export async function registrar(params) {
       }
     }
 
-    const mailres = await sendemail(params.email, resposta.message);
+   //const mailres = await sendemail(params.email, resposta.message);
     
     return{
       success: resposta.success,
-      message:`Enviamos o codico de acesso "pac" para  ${params.email}`
+      message:`Seu usuario é  ${dados.pac}`
     }
   }catch(err){
     return{
