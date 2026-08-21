@@ -174,7 +174,6 @@ export async function saveRegis(params) {
     return{
       success: false,
       message: 'erro na criação da conta!'
-      
     }
     
   }catch(err){
