@@ -27,6 +27,7 @@ function Regc(){
             return;
            } 
            setAllPacs(data);
+           
         }
         carregarDados();
     },[actualizar]);
@@ -105,6 +106,7 @@ function Regc(){
                             <th>Id</th>
                             <th>Pac</th>
                             <th>Nome</th>
+                            <th>Senha</th>
                             <th>Genero</th>
                             <th>Idade</th>
                             <th>Contacto</th>
@@ -119,6 +121,7 @@ function Regc(){
                                     setIsOpen(true);
                                      setPac({
                                         nome: item.nome,
+                                        senha: item.senha,
                                         genero: item.genero,
                                         idade: item.idade,
                                         contacto: item.contacto,
@@ -126,6 +129,7 @@ function Regc(){
                                         id: item.id
                                      })}}>Editar</button> <FaTrash onClick={()=>removerPac(item.id)} className={styles.lixeira}/> {item.pac}</td>
                                 <td>{item.nome}</td>
+                                <td>{item.senha}</td>
                                 <td>{item.genero}</td>
                                 <td>{item.idade}</td>
                                 <td>{item.contacto}</td>

@@ -14,7 +14,8 @@ function Carinho_atestado(){
     const [open, setOpen] = useState(false);
     const [pac, setPac] = useState(sessionStorage.getItem('pac'));
     const [atestados, setAtestados] = useState([]);
-    const [status, setStatus] = useState(false)
+    const [status, setStatus] = useState(false);
+    const [alerta, setAlerta] = useState("")
 
     const usuario = localStorage.getItem('usuario')
 
@@ -22,6 +23,10 @@ function Carinho_atestado(){
         async function carregarDados() {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/solic_atestado/${pac}`);
             const data = await response.json();
+            if(response.status !== 200){
+              setAlerta("Nenhum pedido submetido para atestado medico!")
+               return; 
+            };
             setAtestados(data);
         }
         carregarDados();
@@ -48,6 +53,7 @@ function Carinho_atestado(){
             </div>
             
             <div className={styles.content}>
+                <h3>{alerta}</h3>
                 <div className={styles.divC}>
                     {atestados.map((item)=>(
                         <div key={item.id}  className={styles.card}>

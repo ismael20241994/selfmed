@@ -189,7 +189,7 @@ function Pac (){
                 <div onClick={()=>navigate('#')} className={styles.divIcon}><FaFileSignature  className={`${ !activo ? styles.navIconActive : ""}`}/><br /><span className={styles.spanIcon}>Agendar</span></div>
                 <div onClick={()=>navigate('/list')} className={styles.divIcon}><LuCalendarCheck2 className={styles.navIcon}/><br /><span>Agendadas</span></div>
                 <div onClick={()=>navigate('/atestado')} className={styles.divIcon}><FaFileAlt className={styles.navIcon}/><br /><span>Atestado</span></div>
-                <div onClick={()=>alert('ola')} className={styles.divIcon}><FaPlus className={styles.navIcon}/><br /><span>Farmacia</span></div>
+                <div onClick={()=>alert('Recurso temporariamente indisponivel')} className={styles.divIcon}><FaPlus className={styles.navIcon}/><br /><span>Farmacia</span></div>
             </div>
                 <div className={`${menu ? styles.menusupshow : styles.menusuphiden }`}>
                     <Link to="#" className={styles.link}>Agendar</Link>

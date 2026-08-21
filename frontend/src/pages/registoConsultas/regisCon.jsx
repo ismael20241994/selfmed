@@ -10,13 +10,15 @@ function RegistConsultas (){
     const [consulta, setConsulta] = useState({id:"", estado:""});
     useEffect(()=>{
         async function carregarDados() {
-            const response = await fetch("${import.meta.env.VITE_API_URL}/allConsult");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/allConsult`);
             const data = await response.json();
+            
            if(response.status !== 200){
             alert(data.message);
             return;
            } 
            setAllConsult(data);
+           
         }
         carregarDados();
     },[actualizar])
@@ -30,8 +32,6 @@ function RegistConsultas (){
                return; 
             };
 
-            /*setPopup(true)
-            setPopupMessage(data)*/
             setActualizar((act)=>!act)
 
         }catch(err){
@@ -64,11 +64,8 @@ function RegistConsultas (){
                return; 
             };
             console.log(consulta)
-            /*setPopup(true)
-            setPopupMessage(data)*/
-            
+           
             setActualizar((act)=>!act);
-            
             
         }catch(err){
             alert(err.message)

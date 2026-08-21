@@ -162,11 +162,13 @@ footer {
   width: 48%;
   cursor: pointer;
   text-align: center;
+  border: 1px solid skyblue;
 }
 
 .contentCard {
   padding: 2px 2%;
-  background: #E3E7EE;     
+  background: #E3E7EE; 
+      
 }
 
 .btnCard{
@@ -174,7 +176,13 @@ footer {
   border: 1px solid;
   border-radius: 3px;
   padding: 7px;
-  font-size:large;
+  width: 100%;
+  font-size:larger;
+  color: white;
+}
+
+.btnCardIcon{
+  color:black
 }
 
 .form{

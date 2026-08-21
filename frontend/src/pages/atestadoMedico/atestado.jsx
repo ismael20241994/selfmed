@@ -141,7 +141,7 @@ function Atestado(){
                 <div onClick={()=>navigate('/pac')} className={styles.divIcon}><FaFileSignature  className={styles.navIcon}/><br /><span className={styles.spanIcon}>Agendar</span></div>
                 <div onClick={()=>navigate('/list')} className={styles.divIcon}><LuCalendarCheck2 className={styles.navIcon}/><br /><span>Agendadas</span></div>
                 <div onClick={()=>navigate('/atestado')} className={styles.divIcon}><FaFileAlt className={`${ !activo ? styles.navIconActive : ""}`}/><br /><span>Atestado</span></div>
-                <div onClick={()=>alert('Recurço temporariamente indisponivel')} className={styles.divIcon}><FaPlus className={styles.navIcon}/><br /><span>Farmacia</span></div>
+                <div onClick={()=>alert('Recurso temporariamente indisponivel')} className={styles.divIcon}><FaPlus className={styles.navIcon}/><br /><span>Farmacia</span></div>
                 <div onClick={()=>navigate('/Car_atestado')} className={`${styles.divIconCarinho}`}><FaShoppingCart className={styles.navIconCarinho}/><span className={styles.spanCarinho}>3</span></div>
             </div>
             
@@ -151,7 +151,7 @@ function Atestado(){
                         <div key={index} className={styles.card} >
                             <h3>{item}</h3>
                                 <div onClick={()=>{setOpenModal(true);setNomeClinica(item)}} className={styles.contentCard}>
-                                <button className={styles.btnCard}><span>Pesquisar Atestado</span> <FaSearch size={14}/></button>
+                                <button className={styles.btnCard}><span>Pesquisar Atestado</span> <FaSearch className={styles.btnCardIcon} size={14}/></button>
                             </div>
                         </div>
                     ))}
@@ -182,7 +182,7 @@ function Atestado(){
                         <label htmlFor="" className={styles.label}>Contacto*</label>                       
                         <input type="text" name="contacto" value={inputs.contacto} onChange={handleChangeModal} placeholder='Contacto: exemplo 84xxxxxx' />
                         <span className={styles.alerta}>{alerta.contacto}</span>
-                        <button className={styles.btn}>Pesquisar Atestado <FaSearch size={14}/></button>
+                        <button className={styles.btn}>Pesquisar Atestado <FaSearch className={styles.btnCardIcon} size={14}/></button>
                     </form>
                 </Modal>
             </div>
