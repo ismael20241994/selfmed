@@ -286,7 +286,7 @@ export async function pacDate(params) {
 export async function  deletar(params) {
   try{
     const [result] = await pool.query(
-      'DELETE FROM bigdb WHERE cnsId = ?',
+      'DELETE FROM bigdb WHERE id = ?',
       [params]
     );
 
@@ -366,7 +366,7 @@ export async function updateEstado(params) {
     const [result] = await pool.query(`
       UPDATE bigdb
         SET estado = ?
-        WHERE cnsId = ?
+        WHERE id = ?
         `,
       [params.estado, params.id]
   
@@ -386,7 +386,7 @@ export async function updateEstado(params) {
     };
   }catch(err){
     return{
-      succes: false,
+      success: false,
       message: 'erro na actualizacao de dados!'
     }
   } 

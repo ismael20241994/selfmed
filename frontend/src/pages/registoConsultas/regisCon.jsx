@@ -45,7 +45,7 @@ function RegistConsultas (){
 
     async function handleSubmit(e){
         e.preventDefault();
-         try{
+        try{
             if(!consulta) return alert("Selecione o estado!");
             const response = await fetch(`${import.meta.env.VITE_API_URL}/updateEstado`,
                 {
