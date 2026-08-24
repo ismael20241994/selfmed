@@ -79,11 +79,9 @@ function Login(){
                 return;
             }
             
-            //setAlerta(data.message);
             sessionStorage.setItem('pac',form.usuario);
             localStorage.setItem('usuario', data.data[0].nome)
             localStorage.setItem('token', data.token);
-
             const token = localStorage.getItem('token');
             
             const response = await fetch(`${import.meta.env.VITE_API_URL}/auth`,{
@@ -92,11 +90,12 @@ function Login(){
                     Authorization: `Bearer ${token}`
                 }
             });
-           
+          
             if(response.status !== 200){
                 localStorage.removeItem('token');
                 return navigate('/')
             }
+            
             setTimeout(()=>{
                 navigate('/pac')
             },5000)
@@ -163,7 +162,7 @@ function Login(){
         }
         setLoader(true);
         try{
-            //console.log("API URL:", import.meta.env.VITE_API_URL);
+          
             const res = await fetch(`${import.meta.env.VITE_API_URL}/singUp`,
             {
                 method: 'POST',
@@ -192,7 +191,7 @@ function Login(){
                 setTimeout(()=>setAlerta(""),3000)
                 return;
             }
-            console.log(data)
+            
             setLoader(false) 
             setOpen(true);
            setActiveTab('Login');

@@ -133,10 +133,10 @@ function MyConsults (){
                                 <FaCalendarDays className={styles.icone}/> <span>{item.dia}</span> <br/>
                                 <FaClock className={styles.icone}/> <span>{item.hora}</span>    
                                 <br></br>
-                                {item.estado !== 'autorizado' ?(<><FaSpinner className={styles.spin}/> <span>Em analise</span></>):
+                                {item.estado !== 'Autorizado' ?(<><FaSpinner className={styles.spin}/> <span>Em analise</span> 
+                                <FaTrash onClick={()=>deletar(item.cnsId)} className={styles.lixeira}/></>):
                                 (<><FaCircleCheck className={styles.iconStatus}/> <span>Autorizado</span></>)}  
                                 {/*<FaPen onClick={()=>setPen((aberto)=>!aberto)} className={styles.editar}/>*/}
-                                {item.estado === 'autorizado' ? "" :(<FaTrash onClick={()=>deletar(item.cnsId)} className={styles.lixeira}/>)}
                                 {/*<span><br />🟢 Marcar Consulta</span>futuro botao clicavel*/}
                             </div>
                         </div>

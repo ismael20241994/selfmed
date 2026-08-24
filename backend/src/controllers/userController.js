@@ -221,7 +221,7 @@ export async function actualizarEstado(req,res) {
             return res.status(404).json({message: resposta.message});
         }
         res.status(200).json(resposta.data)
-      console.log(resposta)
+     
     }catch(err){
         res.status(500).json('Error interno do servidor!')
     }

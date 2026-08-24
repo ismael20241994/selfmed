@@ -363,6 +363,7 @@ export async function getAllConsult() {
 
 export async function updateEstado(params) {
   try{
+    
     const [result] = await pool.query(`
       UPDATE bigdb
         SET estado = ?

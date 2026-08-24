@@ -9,6 +9,7 @@ export function AuthProvider({ children }) {
 
   async function checkAuth() {
     const token = localStorage.getItem("token");
+    
 
     if (!token) {
       setLoading(false);

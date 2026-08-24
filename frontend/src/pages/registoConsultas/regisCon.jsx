@@ -63,7 +63,7 @@ function RegistConsultas (){
                alert(data.message)
                return; 
             };
-            console.log(consulta)
+            alert(data);
            
             setActualizar((act)=>!act);
             
@@ -128,8 +128,8 @@ function RegistConsultas (){
                     <form onSubmit={handleSubmit} >
                         <select  onChange={handleChange}>
                             <option value="">Selecionar estado</option>
-                            <option value="pendente">Pendente</option>
-                            <option value="autorizado">Autorizado</option>
+                            <option value="Pendente">Pendente</option>
+                            <option value="Autorizado">Autorizado</option>
                         </select>
                         <button>Actualizar</button>
                     </form>
