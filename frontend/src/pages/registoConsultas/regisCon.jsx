@@ -104,12 +104,12 @@ function RegistConsultas (){
                     </thead>
                     <tbody>
                         {allConsult.map((item)=>(
-                            <tr key={item.cnsId}>
-                                <td>{item.cnsId}</td>
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
                                 <td>{item.pac} <FaPen onClick={()=>{setOpenModal(true); 
-                                    setConsulta((prev)=>({...prev, id: item.cnsId}))}} 
+                                    setConsulta((prev)=>({...prev, id: item.id}))}} 
                                     className={styles.iconPen}/>  
-                                    <FaTrash onClick={()=>removerConsul(item.cnsId)} className={styles.icon}/> 
+                                    <FaTrash onClick={()=>removerConsul(item.id)} className={styles.icon}/> 
                                 </td>
                                 <td>{item.nome}</td>
                                 <td>{item.genero}</td>
