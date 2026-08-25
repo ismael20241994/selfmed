@@ -36,7 +36,7 @@ function DSB (){
 
                 <div  className={styles.cardSd} >
                     <div className={styles.contentCardSd}>
-                        <a href="#" className={styles.link}>Actualização de Atestados</a>
+                        <a href="/updt_atest" className={styles.link}>Actualização de Atestados</a>
                     </div>
                 </div>
 

@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 0px;
+}
+
+.contTopNave {
+  border: 1px solid #E3E7EE;
+  background-color: #F8F8F8;
+  padding: 10px;
+  grid-column: col-start / span 12;
+}
+
+.content{
+    grid-column: col-start   / span 12;
+}
+
+.content{
+ height: 100%;
+ 
+}
+
+.topnav {
+  overflow: hidden;
+  width: 100%;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.form{
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.inptSearch{
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.table{
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table td{
+   width: auto;
+}
+
+.icon{
+  color: rgba(255, 0, 0, 0.671);
+  margin-left: 10px;
+}
+
+.iconPen{
+    color: black;
+    margin-left: 10px;
+}

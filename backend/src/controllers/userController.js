@@ -1,7 +1,8 @@
 import { saveData,getData, registrar, userLogin } from '../services/userServer.js';
 import { getCateg, nameClinic, pacSave, getConsultas, 
     allPacs, pacDate, deletar, apagar, getAllConsult, updateEstado,getAllRegistedClinica,
-actualizarClinica, adicionarClinica, solic_atestado, get_solic_atestado} from '../repositorio/respo.js';
+actualizarClinica, adicionarClinica, solic_atestado, get_solic_atestado, get_all_atestado,
+update_atestado} from '../repositorio/respo.js';
 import url from 'url';
 
 export async function salvarDado(req, res) {
@@ -289,5 +290,30 @@ export async function getSolicAtestado(req, res) {
         res.status(200).json(resposta.data);
     }catch(err){
         res.status(500).json({message: 'Error interno do servidor'})
+    }
+}
+
+export async function todos_atestados(req, res) {
+    try{
+        const resposta = await get_all_atestado();
+        if (!resposta.success){
+            return res.status(404).json({message:resposta.message})
+        }
+       return res.status(200).json(resposta.data);
+    }catch(err){
+        res.status(500).json({message: "Error interno do servidor"})
+    }
+}
+
+export async function actualizar_atestado(req, res) {
+    try{
+        const data = req.body;
+        const resposta = await update_atestado(data);
+        if (!resposta.success){
+            return res.status(404).json({message:resposta.message})
+        }
+       return res.status(200).json(resposta.data);
+    }catch(err){
+        res.status(500).json({message: "Error interno do servidor"})
     }
 }

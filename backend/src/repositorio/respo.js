@@ -528,3 +528,59 @@ export async function get_solic_atestado(params) {
     }
   }
 };
+
+export async function get_all_atestado(params) {
+  try{
+
+    const [rows] = await pool.query(
+      'SELECT * FROM atestado' 
+    );
+
+    if(rows.length === 0) {
+      return {
+        success: false,
+        message: 'Dados não encontrado' 
+      }
+    };
+
+    return{
+      success: true,
+      data: rows
+    }
+  }catch(err){
+    return{
+      success: false,
+      message: err.message
+    }
+  }
+}
+
+export async function update_atestado(params) {
+   try{
+    const [result] = await pool.query(`
+      UPDATE atestado
+        SET status = ?
+        WHERE id = ?
+        `,
+      [params.estado, params.id]
+    );
+
+    if (result.affectedRows === 0) {
+        return {
+          success: false,
+          message: "Erro na actualização de dados"
+        };
+    }
+
+    return {
+      success: true,
+      data: "Atestado atualizado com sucesso"
+    };
+
+  }catch(err){
+    return{
+      succes: false,
+      message: err.message
+    }
+  }
+}

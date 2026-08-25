@@ -6,12 +6,13 @@ import MyConsults from './pages/consultas'
 import Login from './pages/login/login_sing_up';
 import DSB from './pages/myDashBord';
 import Regc from './pages/regCons';
-
 import RegistConsultas from './pages/registoConsultas';
 import Clinica from './pages/clinicas';
 import Atestado from './pages/atestadoMedico';
 import Carinho_atestado from './pages/carinho';
 import PrivateRoute from './pages/hooks/protectRoutes';
+import Atestado_manege from './pages/update_atestado';
+
 function App() {
   return (
       <Routes>
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element ={<Login/>}></Route>
           <Route path="/rx" element={<RX/>}></Route>
           <Route path="/md" element={<MD/>}></Route>
+          <Route path='/updt_atest' element={<Atestado_manege/>}></Route>
           {/* Todas as rotas protegidas */}
         <Route  element={<PrivateRoute/>}>
           <Route path="/pac" element={<Pac/>} />
